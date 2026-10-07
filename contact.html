@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelrahman Mohamed | Contact</title>
+    <link rel="stylesheet" href="css/Stylesheet.css">
+</head>
+<body>
+    <header>
+        <h1>Abdelrahman Mohamed</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Contact Me</h2>
+        <form action="#" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="1" max="120">
+
+            <label for="date">Preferred contact date</label>
+            <input type="date" id="date" name="date">
+
+            <fieldset>
+                <legend>Preferred contact method</legend>
+                <label for="contact-email">Email</label>
+                <input type="radio" id="contact-email" name="contact-method" value="email" checked>
+                <label for="contact-phone">Mobile</label>
+                <input type="radio" id="contact-phone" name="contact-method" value="mobile">
+            </fieldset>
+
+            <div id="email-field">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div id="mobile-field" hidden>
+                <label for="mobile">Mobile number</label>
+                <input type="tel" id="mobile" name="mobile" autocomplete="tel" required>
+            </div>
+
+            <fieldset>
+                <legend>Topics</legend>
+                <label for="topic-web">Web development</label>
+                <input type="checkbox" id="topic-web" name="topics" value="web-development">
+                <label for="topic-study">Study</label>
+                <input type="checkbox" id="topic-study" name="topics" value="study">
+            </fieldset>
+
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+                <option value="general">General question</option>
+                <option value="project">Project discussion</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2026 Abdelrahman Mohamed</p>
+    </footer>
+    <script>
+        const emailOption = document.getElementById("contact-email");
+        const mobileOption = document.getElementById("contact-phone");
+        const emailField = document.getElementById("email-field");
+        const mobileField = document.getElementById("mobile-field");
+        const emailInput = document.getElementById("email");
+        const mobileInput = document.getElementById("mobile");
+
+        function updateContactFields() {
+            emailField.hidden = !emailOption.checked;
+            mobileField.hidden = !mobileOption.checked;
+            emailInput.required = emailOption.checked;
+            mobileInput.required = mobileOption.checked;
+        }
+
+        emailOption.addEventListener("change", updateContactFields);
+        mobileOption.addEventListener("change", updateContactFields);
+        updateContactFields();
+    </script>
+</body>
+</html>
