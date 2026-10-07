@@ -71,6 +71,16 @@ form button {
     padding: 8px 16px;
 }
 
+#email-field,
+#mobile-field {
+    display: none;
+}
+
+form:has(#contact-email:checked) #email-field,
+form:has(#contact-phone:checked) #mobile-field {
+    display: block;
+}
+
 footer {
     padding: 8px 16px;
     background-color: #ddd;
